@@ -54,11 +54,11 @@
             <p>+123456789</p>
         </div>
         <div class="logo">
-            <a href="index.html"><img src="{{url('/')}}/client_assets/images/logo.png" alt=""><span>E</span>NLIGHTEN</a>
+            <a href=""><img src="{{url('/')}}/client_assets/images/logo.png" alt=""><span>H</span>IFA</a>
         </div>
         <div class="banner">
-            <h1>Education is the movement  </h1>
-            <h2>From  darkness to light</h2>
+            <h1>Trường trung cấp tin học</h1>
+            <h2>tài chính kế toán Hà Nội</h2>
         </div>
     </div> 
 </div>

@@ -13,6 +13,7 @@
    <meta property="og:title" content="@yield('title')" />
    <meta property="og:description" content="@yield('meta_desc')" />
    <meta property="og:url" content="@yield('links')" />
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	@include('client.includes.css')
 </head>
 <body>
