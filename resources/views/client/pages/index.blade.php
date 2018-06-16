@@ -53,149 +53,151 @@
     <div class="content-mid">
       <div class="col-md-3 content-mid1">
         <div class=" content-mid-img">
-        
         </div>
       </div>
+      
       <div class="col-md-7 content-mid2">
       <div class=" grid-middle">
       <div class=" grid-mid">
       <label></label>
-      <h3>Latest-News --- Tin mới</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-      
+      <h3>Tin tức</h3>
+        @foreach($list_new as $item)
         <div class="news-top">
         <div class=" col-md-6 latest-grid">
           <div class="col-md-9 news-in">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+            <h5><a href="/newletters/{{$item->alias}}" title="{{$item->name}}">{{$item->name}}</a></h5>
+            <p>{!!$item->desc!!}</p>
           </div>
           <div class="col-md-3 news">
-            <h4>20<span>June</span></h4>          
+            <h4>{!!date_format($item->created_at,'d')!!}<span>
+              <?php
+              $so= date_format($item->created_at,'m');
+              switch ($so) {
+                      case 1:
+                          echo "Jan";
+                          break;
+                      case 2:
+                          echo "Feb";
+                          break;
+                      case 3:
+                          echo "Mar";
+                          break;
+                      case 4:
+                          echo "Apr";
+                          break;
+                      case 5:
+                          echo "May";
+                          break;
+                      case 6:
+                          echo "Jun";
+                          break;
+                      case 7:
+                          echo "Jun";
+                          break;
+                      case 8:
+                          echo "Aug";
+                          break;
+                      case 9:
+                          echo "Sep";
+                          break;
+                      case 10:
+                          echo "Oct";
+                          break;
+                      case 11:
+                          echo "Nov";
+                          break;
+                      default:
+                          echo "Dec";
+                          break;
+                  }
+              ?>
+            </span></h4>          
           </div>
           <div class="clearfix"> </div>
         </div>
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-3 news">
-            <h4>16<span>June</span></h4>          
-          </div>
-          <div class="col-md-9 news-in in-news">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-
-          </div>
-          
-          <div class="clearfix"> </div>
-        </div>
-      <div class="clearfix"> </div>
-      </div>
-          <div class="news-top">
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-9 news-in">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-          </div>
-          <div class="col-md-3 news">
-            <h4>11<span>June</span></h4>          
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-3 news">
-            <h4>09<span>June</span></h4>          
-          </div>
-          <div class="col-md-9 news-in in-news">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-
-          </div>
-          
-          <div class="clearfix"> </div>
-        </div>
-      <div class="clearfix"> </div>
-      </div>
+        </div>  
+       @endforeach 
     </div>
     </div>
-      </div>
-      <div class="col-md-2 content-mid1">
-        <div class=" content-mid-img1">
-        
-        </div>      
-      </div>
-      <div class="clearfix"></div>
     </div>
-<div class="content-mid">
+     
+    <div class="content-mid">
       <div class="col-md-3 content-mid1">
         <div class=" content-mid-img">
         
         </div>
       </div>
+     
       <div class="col-md-7 content-mid2">
       <div class=" grid-middle">
       <div class=" grid-mid">
       <label></label>
-      <h3>Latest-News --- Tin mới</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-      
+      <h3> Tin mới nhất</h3>
+      @foreach($new_news as $item)
         <div class="news-top">
-        <div class=" col-md-6 latest-grid">
+        <div class=" col-md-6 latest-grid"> 
           <div class="col-md-9 news-in">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+            <h5><a href="#" title="{{$hot_new->title}}">{{$item->name}}</a></h5>
+            <p>{!!$item->desc!!}</h5>
           </div>
           <div class="col-md-3 news">
-            <h4>20<span>June</span></h4>          
+            <h4>{!!date_format($item->created_at,'d')!!}<span>
+              <?php
+              $so= date_format($item->created_at,'m');
+              switch ($so) {
+                      case 1:
+                          echo "Jan";
+                          break;
+                      case 2:
+                          echo "Feb";
+                          break;
+                      case 3:
+                          echo "Mar";
+                          break;
+                      case 4:
+                          echo "Apr";
+                          break;
+                      case 5:
+                          echo "May";
+                          break;
+                      case 6:
+                          echo "Jun";
+                          break;
+                      case 7:
+                          echo "Jun";
+                          break;
+                      case 8:
+                          echo "Aug";
+                          break;
+                      case 9:
+                          echo "Sep";
+                          break;
+                      case 10:
+                          echo "Oct";
+                          break;
+                      case 11:
+                          echo "Nov";
+                          break;
+                      default:
+                          echo "Dec";
+                          break;
+                  }
+              ?>
+            </span></h4>          
           </div>
           <div class="clearfix"> </div>
         </div>
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-3 news">
-            <h4>16<span>June</span></h4>          
-          </div>
-          <div class="col-md-9 news-in in-news">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-
-          </div>
-          
-          <div class="clearfix"> </div>
         </div>
-      <div class="clearfix"> </div>
-      </div>
-          <div class="news-top">
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-9 news-in">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-          </div>
-          <div class="col-md-3 news">
-            <h4>11<span>June</span></h4>          
-          </div>
-          <div class="clearfix"> </div>
-        </div>
-        <div class=" col-md-6 latest-grid">
-          <div class="col-md-3 news">
-            <h4>09<span>June</span></h4>          
-          </div>
-          <div class="col-md-9 news-in in-news">
-            <h5><a href="single.html">Lorem ipsum dolor sit</a></h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-
-          </div>
-          
-          <div class="clearfix"> </div>
-        </div>
-      <div class="clearfix"> </div>
-      </div>
+        @endforeach 
     </div>
     </div>
-      </div>
-      <div class="col-md-2 content-mid1">
-        <div class=" content-mid-img1">
-        
-        </div>      
-      </div>
+    </div>
+
+      <div class="content-mid">
+        <div class="col-md-2 content-mid1">
+          <div class=" content-mid-img1">
+          </div>      
+        </div>
       <div class="clearfix"></div>
     </div>
 </div>

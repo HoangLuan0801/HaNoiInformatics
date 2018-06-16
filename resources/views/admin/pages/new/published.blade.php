@@ -79,7 +79,7 @@
 														</a>
 													</td>
 													<td align="center">
-														<a href="/admin/new/{{$item->id}}">
+														<a href="/admin/new/view/{{$item->id}}">
 															<i class="fa fa-search"></i>
 														</a>
 													</td>

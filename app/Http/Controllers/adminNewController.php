@@ -408,6 +408,19 @@ class adminNewController extends Controller
         }
     }
 
+    public function view($id){
+        $newletter = News::where('id',$id)->get()->first();
+        $list_cate_newletter = News::orderBy('id','desc')
+                                    ->where('cate_id',$newletter->cate_id)
+                                    ->paginate(10);
+        unset($list_cate_newletter[0]);
+        return view('client.pages.news.detail',[
+            'newletter' => $newletter,
+            'list_newcate'=>$list_cate_newletter
+        ]);
+
+    }
+
     public function search()
     {
         $categories = Category::where('status',1)->get();

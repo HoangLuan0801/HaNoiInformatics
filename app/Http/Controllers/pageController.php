@@ -18,18 +18,24 @@ class pageController extends Controller
     					->where('isDraft',0)
     					->where('isBrowse',0)
     					->where('isPublish',0)
-    					->paginate(7);
+                        ->skip(0)
+                        ->take(10)
+                        ->get();
         unset($list_new[0]);
+        $new_news = News::orderBy('id','desc')
+                        ->where('isDraft',0)
+                        ->where('isBrowse',0)
+                        ->where('isPublish',0)
+                        ->skip(0)
+                        ->take(5)
+                        ->get();
+        unset($new_news[1]);
 
         $list_cate_parent = Category::where('parentID',0)
                             ->where('isShowContent',1)
                             ->where('status',1)->get();
 
-    	return view('client.pages.index',[
-    		'hot_new'=>$hot_new,
-    		'list_new'=>$list_new,
-            'list_cate_parent'=>$list_cate_parent,
-    	]);
+    	return view('client.pages.index',compact('hot_new','list_new','new_news','list_cate_parent'));
     }
 
     public function newletters_detail($alias)

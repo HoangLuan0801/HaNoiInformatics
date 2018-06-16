@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminAuth'], function() {
 
     //Quản lý tin tức
     Route::group(['prefix' => 'new'], function() {
+        Route::get('/view/{id}','adminNewController@view')->name('view');
     	//create new
         Route::get('/create','adminNewController@create')->name('get_create_new');
         Route::post('/create','adminNewController@postCreate');

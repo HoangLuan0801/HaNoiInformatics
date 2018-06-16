@@ -12,57 +12,42 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-          <div id="nav">
-            <div id="jv-mainnav">
-               <div class="jv-block">
-                  <div class="jv-inner clearfix">
-                     <span class="item-menu ml"></span>
-                     <span class="item-menu mr"></span>
-                     <div class="jv-menu u-1 ">
-                        <ul class="menu mainmenu dropdown">
-                           <li class=""><a href="/"></a></li>
-                            @if(count($menu) > 0)
-                              @foreach($menu as $item)
-                                  <?php
-                                    $sub_menu = App\Category::orderBy('orderBy','desc')->where('parentID',$item->id)->get();
-                                   ?>
-                                  <li class="item-103 deeper parent">
-                                      <a 
-                                        href="{{url('/')}}/categories/{{$item->alias}}"
-                                          title="">{{$item->name}}
-                                          <span></span>
-                                      </a>
-                                      <ul>
-                                        @foreach($sub_menu as $sub)
-                                           <li class="item-1">
-                                              <a href="{{url('/')}}/categories/{{$sub->alias}}">
-                                                <span>{{$sub->name}}</span>
-                                              </a>
-                                           </li>
-                                        @endforeach
-                                      </ul>
-                                  </li>
-                              @endforeach
-                           @endif
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-              </div>
-            </div>
-      </nav>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      @if(count($menu) > 0)
+        @foreach($menu as $item)
+            <?php
+              $sub_menu = App\Category::orderBy('orderBy','desc')->where('parentID',$item->id)->get();
+             ?>
+      <li class="dropdown">
+        <a href="{{url('/')}}/categories/{{$item->alias}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$item->name}} <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        @foreach($sub_menu as $sub)
+         <li class="item-1">
+            <a href="{{url('/')}}/categories/{{$sub->alias}}">
+              <span>{{$sub->name}}</span>
+            </a>
+         </li>
+        @endforeach
+        </ul>
+      </li>
+      @endforeach
+      @endif
+    </div>
+   </div>
+  </nav>
     <!-- start search-->
     
-                <div class="search-box">
-                   <div id="sb-search" class="sb-search">
-                     <form action="#" method="post">
-                         <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
-                         <input class="sb-search-submit" type="submit" value="">
-                         <span class="sb-icon-search"> </span>
-                    </form>
-                    </div>
-                 </div>
-                <div class="clearfix"></div>
+  <div class="search-box">
+     <div id="sb-search" class="sb-search">
+       <form action="#" method="post">
+           <input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+           <input class="sb-search-submit" type="submit" value="">
+           <span class="sb-icon-search"> </span>
+      </form>
+      </div>
+   </div>
+  <div class="clearfix"></div>
 </div>
           
         <div class="number">
@@ -77,30 +62,3 @@
         </div>
     </div> 
 </div>
-<script type="text/javascript">
-  $(function() {
-    greyInitRedux();
-    ieDropdownsNav();
-    ieDropdownsFilter();
-    itemViewer();
-    jsTabsetInit();
-    slider();
-    headerTabs();
-    carousel();
-    emergencyClose();
-    adjournLinks();
-    zebra_strip_rows();
-
-    $("#nav li").hover(function() {
-        $(this).find("ul:first").css({
-            visibility: "visible",
-            display: "none"
-        }).show(400);
-    }, function() {
-        $(this).find("ul:first").css({
-            visibility: "hidden"
-        });
-    });
-    slideFooter();
-});
-</script>
